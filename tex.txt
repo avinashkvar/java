@@ -1,49 +1,18 @@
-8
-push 5
-push 3
-push 1
-getMin
-pop
-getMin
-pop
-getMin
-
-
-
-
-
-import java.util.*;
-
-class Main{
-    static Stack<Integer> org = new Stack<>();
-    static Stack<Integer> min = new Stack<>();
-
-    public static void main(String args[]){
-        Scanner sc  = new Scanner(System.in);
-        
-        int q = sc.nextInt();
-        while(q-->0){
-            String type = sc.next();
-
-            if(type.equals("push")){
-                int x = sc.nextInt();
-                push(x);
-            }
-            if(type.equals("pop")){
-                pop();
-            }
-            if(type.equals("getMin")){
-                getMin();
-            }
-        }
-    }
-    static void push(int x){
-        org.push(x);
-        if(min.isEmpyt() || x<=min.peek()){
-           min.push(x);
-        }
-    }
-    static void getMin(){
-        print(min.peek())
-    }
-}
+ str = aaaa
+ 
+ map={
+    a=1;
+    aa=1;
+    aaa=1;
+    aaaa=1;
+ }
+ int max = Integer.MIN_VALUE;
+ char ans = '';
+ for (Map.Entry<String,String> entry : map.entrySet()) {
+      if(entry.getKey().size()>max){
+          max=entry.getKey().size();
+          ans=entry.getKey();
+      }
+ }
+ print(ans);
+          
