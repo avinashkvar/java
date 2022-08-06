@@ -76,19 +76,55 @@ public class linkedlist2 {
           head=head.next;
       } 
        head = res;
-
     }
+   public void addOne(){
+         head = reverseList();
+         Node cur=head;
+         while(cur!=null){
+            if(cur.data==9 && cur.next==null){
+                Node temp = new Node(0);
+                cur.data=1;
+                temp.next=head;
+                head=temp;
+                cur=cur.next;
+            }
+            else if(cur.data==9){
+                cur.data=0;
+                cur=cur.next;
+            }else{
+                cur.data=cur.data+1;
+                break;
+            }
+         }    
+         head = reverseList();
+   }
+   public Node reverseList(){
+       Node left = null;
+       Node cur = head;
+       Node right = null;
+       while(cur!=null){
+            right=cur.next;
+            cur.next=left;
+            left=cur;
+            cur=right;
+       }
+       head=left;
+       return head;
+   }
 
     public static void main(String args[]){
          linkedlist2 list = new linkedlist2();
-         list.addLast(0);
-         list.addLast(1);
-         list.addLast(3);
-         list.addLast(4);
-         list.addLast(1);
-         list.addLast(1);
-         list.addLast(2);
-         list.removeDuplicate();
+         list.addLast(9);
+         list.addLast(9);
+         list.addLast(9);
+         list.addLast(9);
+         list.addLast(9);
+         list.addLast(9);
+         list.addLast(9);
+         list.printList();
+         list.reverseList();
+         list.printList();
+         list.addOne();
          list.printList();
     }
 }
